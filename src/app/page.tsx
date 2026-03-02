@@ -138,18 +138,18 @@ export default function Home() {
   const currentModelInfo = availableModels.find((m) => m.id === currentModel);
 
   return (
-    <div className="flex flex-col h-screen bg-black text-white">
+    <div className="flex flex-col h-screen bg-blue-950 text-white">
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-3xl mx-auto px-4 py-8">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-20">
               <div className="mb-8">
-                <EmptyChatIcon className="w-16 h-16 text-gray-500 mx-auto" />
+                <EmptyChatIcon className="w-16 h-16 text-blue-300 mx-auto" />
               </div>
               <h3 className="text-2xl font-semibold text-white mb-2">
                 Hello, I&apos;m Chatbot
               </h3>
-              <p className="text-gray-400 text-sm">Start a conversation</p>
+              <p className="text-blue-200 text-sm">Start a conversation</p>
             </div>
           ) : (
             <>
@@ -160,9 +160,9 @@ export default function Home() {
                     <div className={`flex gap-4 max-w-[80%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
                       <div className="flex-shrink-0 pt-1">
                         {isUser ? (
-                          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
                             <svg
-                              className="w-4 h-4 text-black"
+                              className="w-4 h-4 text-white"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -176,9 +176,9 @@ export default function Home() {
                             </svg>
                           </div>
                         ) : (
-                          <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center">
                             <svg
-                              className="w-4 h-4 text-gray-400"
+                              className="w-4 h-4 text-blue-200"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -193,7 +193,7 @@ export default function Home() {
                           </div>
                         )}
                       </div>
-                      <div className="flex items-center justify-center text-sm text-gray-100">
+                      <div className="flex items-center justify-center text-sm text-blue-50">
                         {isUser ? (
                           <p className="leading-relaxed whitespace-pre-wrap">{message.content}</p>
                         ) : (
@@ -213,9 +213,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-black px-4 py-6 border-t border-gray-800">
+      <div className="bg-blue-950 px-4 py-6 border-t border-blue-900">
         <div className="max-w-4xl mx-auto">
-          <div className="relative px-6 py-4 rounded-3xl border border-gray-700 bg-gray-900/50 shadow-sm">
+          <div className="relative px-6 py-4 rounded-3xl border border-blue-800 bg-blue-900/50 shadow-sm">
             <textarea
               ref={textareaRef}
               value={input}
@@ -224,7 +224,7 @@ export default function Home() {
               placeholder="Type your message..."
               disabled={isLoading}
               rows={1}
-              className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-0 resize-none disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[80px] pb-12 border-0"
+              className="w-full bg-transparent text-white placeholder-blue-300 focus:outline-none focus:ring-0 resize-none disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[80px] pb-12 border-0"
             />
             <div className="flex items-center justify-between mt-2">
               <div className="relative" ref={modelDropdownRef}>
@@ -232,11 +232,11 @@ export default function Home() {
                   onClick={() => setIsModelOpen(!isModelOpen)}
                   className="flex items-center gap-1.5 px-0 py-0 hover:opacity-70 transition-opacity text-sm"
                 >
-                  <span className="text-gray-300 font-medium">
+                  <span className="text-blue-200 font-medium">
                     {currentModelInfo?.name || 'Select Model'}
                   </span>
                   <svg
-                    className={`w-4 h-4 text-gray-400 transition-transform ${
+                    className={`w-4 h-4 text-blue-300 transition-transform ${
                       isModelOpen ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -247,7 +247,7 @@ export default function Home() {
                   </svg>
                 </button>
                 {isModelOpen && (
-                  <div className="absolute bottom-full mb-2 left-0 w-56 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                  <div className="absolute bottom-full mb-2 left-0 w-56 bg-blue-900 border border-blue-800 rounded-lg shadow-xl z-50">
                     <div className="p-1.5">
                       {availableModels.map((model) => (
                         <button
@@ -258,8 +258,8 @@ export default function Home() {
                           }}
                           className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
                             model.id === currentModel
-                              ? 'bg-gray-700'
-                              : 'hover:bg-gray-700/50'
+                              ? 'bg-blue-800'
+                              : 'hover:bg-blue-800/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -289,7 +289,7 @@ export default function Home() {
               <button
                 onClick={handleSend}
                 disabled={isLoading || !input.trim()}
-                className="w-10 h-10 rounded-full bg-gray-700 text-gray-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors flex items-center justify-center flex-shrink-0"
+                className="w-10 h-10 rounded-full bg-blue-600 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-blue-500 transition-colors flex items-center justify-center flex-shrink-0"
               >
                 <SendIcon className="w-5 h-5" />
               </button>
