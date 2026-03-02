@@ -138,13 +138,13 @@ export default function Home() {
   const currentModelInfo = availableModels.find((m) => m.id === currentModel);
 
   return (
-    <div className="flex flex-col h-screen bg-blue-50 text-slate-900">
+    <div className="flex flex-col h-screen bg-rose-50 text-slate-900">
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-3xl mx-auto px-4 py-8">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-20">
               <div className="mb-8">
-                <EmptyChatIcon className="w-16 h-16 text-blue-200 mx-auto" />
+                <EmptyChatIcon className="w-16 h-16 text-rose-300 mx-auto" />
               </div>
               <h3 className="text-2xl font-semibold text-slate-800 mb-2">
                 Hello, I&apos;m Chatbot
@@ -160,7 +160,7 @@ export default function Home() {
                     <div className={`flex gap-4 max-w-[80%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
                       <div className="flex-shrink-0 pt-1">
                         {isUser ? (
-                          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center shadow-sm">
+                          <div className="w-8 h-8 rounded-full bg-rose-400 flex items-center justify-center shadow-sm">
                             <svg
                               className="w-4 h-4 text-white"
                               fill="none"
@@ -176,9 +176,9 @@ export default function Home() {
                             </svg>
                           </div>
                         ) : (
-                          <div className="w-8 h-8 rounded-full bg-white border border-blue-100 flex items-center justify-center shadow-sm">
+                          <div className="w-8 h-8 rounded-full bg-white border border-rose-100 flex items-center justify-center shadow-sm">
                             <svg
-                              className="w-4 h-4 text-blue-600"
+                              className="w-4 h-4 text-rose-400"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -213,9 +213,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-white/80 backdrop-blur-md px-4 py-6 border-t border-blue-100">
+      <div className="bg-white/80 backdrop-blur-md px-4 py-6 border-t border-rose-100">
         <div className="max-w-4xl mx-auto">
-          <div className="relative px-6 py-4 rounded-3xl border border-blue-100 bg-white shadow-sm focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-300 transition-all">
+          <div className="relative px-6 py-4 rounded-3xl border border-rose-100 bg-white shadow-sm focus-within:ring-2 focus-within:ring-rose-100 focus-within:border-rose-300 transition-all">
             <textarea
               ref={textareaRef}
               value={input}
@@ -232,11 +232,11 @@ export default function Home() {
                   onClick={() => setIsModelOpen(!isModelOpen)}
                   className="flex items-center gap-1.5 px-0 py-0 hover:opacity-70 transition-opacity text-sm group"
                 >
-                  <span className="text-slate-600 font-medium group-hover:text-blue-600 transition-colors">
+                  <span className="text-slate-600 font-medium group-hover:text-rose-500 transition-colors">
                     {currentModelInfo?.name || 'Select Model'}
                   </span>
                   <svg
-                    className={`w-4 h-4 text-slate-400 transition-transform group-hover:text-blue-500 ${
+                    className={`w-4 h-4 text-slate-400 transition-transform group-hover:text-rose-400 ${
                       isModelOpen ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -247,7 +247,7 @@ export default function Home() {
                   </svg>
                 </button>
                 {isModelOpen && (
-                  <div className="absolute bottom-full mb-2 left-0 w-56 bg-white border border-blue-100 rounded-lg shadow-xl z-50">
+                  <div className="absolute bottom-full mb-2 left-0 w-56 bg-white border border-rose-100 rounded-lg shadow-xl z-50">
                     <div className="p-1.5">
                       {availableModels.map((model) => (
                         <button
@@ -258,7 +258,7 @@ export default function Home() {
                           }}
                           className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
                             model.id === currentModel
-                              ? 'bg-blue-50 text-blue-700'
+                              ? 'bg-rose-50 text-rose-600'
                               : 'hover:bg-slate-50 text-slate-700'
                           }`}
                         >
@@ -266,7 +266,7 @@ export default function Home() {
                             <p className="text-sm font-medium">{model.name}</p>
                             {model.id === currentModel && (
                               <svg
-                                className="w-4 h-4 text-blue-600 flex-shrink-0 ml-2"
+                                className="w-4 h-4 text-rose-500 flex-shrink-0 ml-2"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -289,7 +289,7 @@ export default function Home() {
               <button
                 onClick={handleSend}
                 disabled={isLoading || !input.trim()}
-                className="w-10 h-10 rounded-full bg-blue-600 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-blue-700 shadow-md hover:shadow-lg transition-all flex items-center justify-center flex-shrink-0"
+                className="w-10 h-10 rounded-full bg-rose-500 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-rose-600 shadow-md hover:shadow-lg transition-all flex items-center justify-center flex-shrink-0"
               >
                 <SendIcon className="w-5 h-5" />
               </button>
