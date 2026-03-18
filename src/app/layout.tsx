@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'AI Chatbot！！',
+  title: 'AI Chatbot！！!',
   description: 'AI Chat Application',
 };
 
